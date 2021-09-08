@@ -9,6 +9,8 @@ stock price trends using time-series data fetched from the Alpha Vantage API, as
 its performance. The application is a personal project with the intent to develop my skills using React and other technologies. 
 The end goal of this project is to turn Smartfolio into a full-stack application.
 
+👉 <a href="https://react-smartfolio.netlify.app/">Demo</a>
+
 ## Architecture & Technologies
 
 - **React**, a front-end JavaScript library for building user interfaces or UI components
