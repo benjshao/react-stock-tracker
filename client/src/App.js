@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
 // Routing
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 // Components
@@ -9,7 +10,15 @@ import About from './pages/About';
 // Styles
 import { GlobalStyle } from './GlobalStyle';
 
+import { getStocks } from './actions/stocks';
+
 const App = () => {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getStocks());
+  }, [dispatch]);
+
   return (
     <Router>
       <Header />

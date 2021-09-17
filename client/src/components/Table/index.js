@@ -1,9 +1,15 @@
 import React from 'react';
 import { useTable } from 'react-table';
+import { useDispatch } from 'react-redux';
 
 import { Content } from './Table.styles';
+import DeleteIcon from '../../images/delete.svg';
+
+import { deleteStock } from '../../actions/stocks';
 
 const Table = ({ stocks }) => {
+    const dispatch = useDispatch()
+
     const columns = React.useMemo(
         () => [
           {
@@ -61,6 +67,15 @@ const Table = ({ stocks }) => {
                 {s.value} 
               </div>
             ),
+          },
+          {
+            accessor: '_id',
+            width: 40,
+            Cell: s => (
+              <button className='delete-button' onClick={() => dispatch(deleteStock(s.value))}>
+                <img className='delete-icon' src={DeleteIcon} alt='delete-icon' />
+              </button>
+            )
           }
         ],
         [stocks]

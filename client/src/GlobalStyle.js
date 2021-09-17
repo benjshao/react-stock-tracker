@@ -20,17 +20,17 @@ export const GlobalStyle = createGlobalStyle`
   main {
     display: flex;
     background-color: #f5f5f5;
-    justify-content: center;
     flex-direction: column;
     align-items: center;
+    min-height: 80vh;
   }
 
   .about {
     display: flex;
     background-color: #f5f5f5;
-    justify-content: center;
     flex-direction: column;
     align-items: left;
+    min-height: 80vh;
   }
 
   html {
@@ -54,11 +54,7 @@ export const GlobalStyle = createGlobalStyle`
     font-family: 'Molengo', sans-serif;
     font-size: 17px;
     text-align: center;
-    position: absolute;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    padding: 20px;
+    margin-top: auto;
   }
 
 `

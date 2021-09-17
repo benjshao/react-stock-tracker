@@ -7,6 +7,7 @@ export const Content = styled.div`
         border: 2px solid #d6d6d6;
         background-color: white;
         border-spacing: 0;
+        margin-top: 20px;
     }
 
     tr {
@@ -31,7 +32,7 @@ export const Content = styled.div`
     }
 
     tfoot {
-        background-color: #a8a8a8;
+        background-color: #6e6e6e;
         color: white;
     }
 
@@ -46,5 +47,19 @@ export const Content = styled.div`
 
     .RedColor {
         color: red;
+    }
+
+    .delete-button {
+        border: none;
+        background: white;
+        cursor: pointer;
+    }
+
+    .delete-icon {
+        color: #bfbfbf;
+    }
+
+    .delete-icon:hover {
+        transform: scale(1.2)
     }
 `;

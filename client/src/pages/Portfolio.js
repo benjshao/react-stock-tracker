@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import {
     API_KEY,
     API_URL,
   } from '../config';
+import { createStock } from '../actions/stocks';
 // Components
 import Table from './../components/Table';
 import Button from './../components/Button';
@@ -10,7 +12,8 @@ import PopUp from '../components/PopUp';
 
 const Portfolio = () => {
     const [seen, setSeen] = useState(false);
-    const [data, setData] = useState([]);
+    const stocks = useSelector((state) => state.stocks);
+    const dispatch = useDispatch();
 
     const togglePop = () => {
         setSeen(!seen);
@@ -34,7 +37,7 @@ const Portfolio = () => {
                     value: '$' + (parseFloat(document.getElementById('shares').value) * currentPrice).toFixed(2),
                     change: ((parseFloat(currentPrice) - parseFloat(document.getElementById('cost').value)) / parseFloat(document.getElementById('cost').value) * 100).toFixed(2) + '%',
                 }
-                setData(prevState => [...prevState, newAsset]);
+                dispatch(createStock(newAsset));
                 setSeen(!seen);
           });
         e.preventDefault();
@@ -42,7 +45,7 @@ const Portfolio = () => {
 
     return (
         <main>
-            <Table stocks={data} />
+            <Table stocks={stocks} />
             <Button togglePop={togglePop}  />
             {seen ? <PopUp togglePop={togglePop} addAsset={addAsset} /> : null}
         </main>
